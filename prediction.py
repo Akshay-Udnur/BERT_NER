@@ -1,8 +1,4 @@
-# import pandas as pd
-# import numpy as np
-# from sklearn.metrics import accuracy_score
 import torch
-# from torch.utils.data import Dataset, DataLoader
 from transformers import BertTokenizerFast, BertConfig, BertForTokenClassification
 device = 'cuda'
 labels_to_ids = {'O': 0, 'B-geo': 1, 'B-gpe': 2, 'B-per': 3, 'I-geo': 4, 'B-org': 5, 'I-org': 6, 'B-tim': 7, 'I-per': 8, 'I-gpe': 9, 'I-tim': 10}
@@ -11,12 +7,6 @@ new_model = BertForTokenClassification.from_pretrained('./model_1', num_labels=l
 tokenizer = BertTokenizerFast.from_pretrained('./model_1')
 new_model.to(device)
 MAX_LEN = 128
-# TRAIN_BATCH_SIZE = 4
-# VALID_BATCH_SIZE = 2
-# EPOCHS = 1
-# LEARNING_RATE = 1e-05
-# MAX_GRAD_NORM = 10
-# train_size = 0.8
 
 def get_prediction_bert(sentence):
     inputs = tokenizer(sentence.split(),
