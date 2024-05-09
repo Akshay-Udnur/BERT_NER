@@ -3,7 +3,7 @@
 - Activate virtual environment `source venv/bin/activate`
 - Install requirements.txt `pip install -r requirements.txt`
 
-### Problem 1 - 
+### Prediction App - 
 Run `python app.py` in Terminal. It will create .csv of result with misspelt_name and list of ids for each misspelt city name.
 
 - Test REST Api by python - 
