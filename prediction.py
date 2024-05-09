@@ -51,30 +51,6 @@ def get_prediction_bert(sentence):
         continue
     return prediction
 
-def get_span(prediction):
-    out = []
-    c=0
-    ent=False
-    for i in prediction:
-        if i != 'O':
-            ent = True
-            if i[0]=='B':
-                tag = i
-                start = c
-                end = c+1
-            else:
-                end = c+1
-        else:
-            if ent:
-                # print(start,end,tag)
-                out.append(Span(doc,start,end,tag))
-                ent=False
-        c=c+1
-    if ent:
-        # print(start,end,tag)
-        out.append(Span(doc,start,end,tag))
-    return out
-
 def main(sentence):
     prediction = get_prediction_bert(sentence)
     out = []
